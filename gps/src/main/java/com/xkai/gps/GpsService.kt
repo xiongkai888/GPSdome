@@ -16,6 +16,10 @@ class GpsService : Service() {
         private const val TAG = "GpsService"
     }
 
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        return START_STICKY
+    }
+
     //创建一个送信人，封装handler
     private val mMessenger = Messenger(object : Handler() {
         override fun handleMessage(msg: Message) {
